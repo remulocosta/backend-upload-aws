@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    image: mongo
+    container_name: mongo-upload
+    restart: unless-stopped
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/mongodb-data:/data/db
+    command: --logpath=/dev/null
